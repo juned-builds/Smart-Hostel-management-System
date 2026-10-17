@@ -299,7 +299,7 @@ export const RoomManagement: React.FC = () => {
           </div>
         )}
         <form onSubmit={handleAddSubmit} className="space-y-3 text-xs">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Room Number *</label>
               <input
@@ -326,7 +326,7 @@ export const RoomManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Floor Number</label>
               <input
@@ -405,7 +405,7 @@ export const RoomManagement: React.FC = () => {
           </div>
         )}
         <form onSubmit={handleEditSubmit} className="space-y-3 text-xs">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Hostel Block</label>
               <input
@@ -431,7 +431,7 @@ export const RoomManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Room Type</label>
               <select

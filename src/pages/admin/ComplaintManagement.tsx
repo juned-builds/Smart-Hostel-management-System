@@ -113,8 +113,9 @@ export const ComplaintManagement: React.FC = () => {
 
       {/* Complaints List Table */}
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
+        <div className="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
+          <table className="w-full text-left text-xs border-collapse min-w-[900px]">
+          
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Grievance / Title</th>

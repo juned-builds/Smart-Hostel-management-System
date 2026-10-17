@@ -213,7 +213,7 @@ export const StudentFees: React.FC = () => {
             </div>
 
             {/* Receipt metadata */}
-            <div className="grid grid-cols-2 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 text-[11px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 text-[11px]">
               <div>
                 <span className="text-slate-500 block">Receipt Number:</span>
                 <span className="font-mono font-bold text-slate-900">

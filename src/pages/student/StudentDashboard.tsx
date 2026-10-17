@@ -78,11 +78,11 @@ export const StudentDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
-          <div className="flex items-center space-x-2">
-            <h1 className="text-xl font-bold tracking-tight">Welcome, {user?.name}!</h1>
-            <span className="text-[11px] bg-white/20 px-2 py-0.5 rounded font-mono font-medium">
+      <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-4 sm:p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="min-w-0">
+          <div className="flex items-center space-x-2 flex-wrap">
+            <h1 className="text-lg sm:text-xl font-bold tracking-tight">Welcome, {user?.name}!</h1>
+            <span className="text-[11px] bg-white/20 px-2 py-0.5 rounded font-mono font-medium whitespace-nowrap">
               {profileData?.enrollmentNo || user?.enrollmentNo}
             </span>
           </div>
@@ -91,11 +91,11 @@ export const StudentDashboard: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-xs border border-white/20 px-4 py-2.5 rounded-lg flex items-center space-x-3">
-          <BedDouble className="w-6 h-6 text-blue-300" />
+        <div className="bg-white/10 backdrop-blur-xs border border-white/20 px-3 sm:px-4 py-2.5 rounded-lg flex items-center space-x-3 self-start">
+          <BedDouble className="w-5 h-5 sm:w-6 sm:h-6 text-blue-300 shrink-0" />
           <div>
             <div className="text-[10px] uppercase tracking-wider text-blue-200">Allocated Room</div>
-            <div className="text-sm font-bold text-white">
+            <div className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
               {room ? `Room ${room.roomNumber} (${room.block})` : 'Not Allocated Yet'}
             </div>
           </div>

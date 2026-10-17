@@ -135,7 +135,7 @@ export const AllocationManagement: React.FC = () => {
           <h2 className="text-sm font-bold text-slate-900">New Room Allocation Workflow</h2>
         </div>
 
-        <form onSubmit={handleAllocate} className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4 items-end text-xs">
+        <form onSubmit={handleAllocate} className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end text-xs">
           {/* Select Unallocated Student */}
           <div className="space-y-1">
             <label className="font-semibold text-slate-700">
@@ -213,15 +213,15 @@ export const AllocationManagement: React.FC = () => {
 
       {/* Active Allocations Table */}
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
-        <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+        <div className="px-4 sm:px-6 py-4 border-b border-slate-100 flex items-center justify-between">
           <h2 className="text-sm font-bold text-slate-900">
             Active Room Allocations ({allocatedStudents.length})
           </h2>
-          <span className="text-xs text-slate-500">Enforces 1 active room per student</span>
+          <span className="text-xs text-slate-500 hidden sm:inline">Enforces 1 active room per student</span>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
+        <div className="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
+          <table className="w-full text-left text-xs border-collapse min-w-[800px]">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Student Name</th>

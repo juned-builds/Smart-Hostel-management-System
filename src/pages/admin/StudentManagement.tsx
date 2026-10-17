@@ -234,8 +234,8 @@ export const StudentManagement: React.FC = () => {
 
       {/* Student Records Table */}
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
+        <div className="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
+          <table className="w-full text-left border-collapse text-xs min-w-[800px]">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Student & Enrollment</th>
@@ -325,7 +325,7 @@ export const StudentManagement: React.FC = () => {
           </div>
         )}
         <form onSubmit={handleAddSubmit} className="space-y-3 text-xs">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Full Name *</label>
               <input
@@ -350,7 +350,7 @@ export const StudentManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Email Address *</label>
               <input
@@ -375,7 +375,7 @@ export const StudentManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Department</label>
               <select
@@ -421,7 +421,7 @@ export const StudentManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Guardian Name</label>
               <input
@@ -493,7 +493,7 @@ export const StudentManagement: React.FC = () => {
           </div>
         )}
         <form onSubmit={handleEditSubmit} className="space-y-3 text-xs">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Full Name</label>
               <input
@@ -516,7 +516,7 @@ export const StudentManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Department</label>
               <select
@@ -546,7 +546,7 @@ export const StudentManagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Guardian Name</label>
               <input

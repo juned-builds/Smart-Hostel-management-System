@@ -56,16 +56,17 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Hostel Warden Management Dashboard</h1>
+          <h1 className="text-lg sm:text-xl font-bold text-slate-900">Hostel Warden Management Dashboard</h1>
           <p className="text-xs text-slate-500 mt-1">
             Real-time occupancy tracking, student affairs, grievance handling, and fee status.
           </p>
         </div>
-        <div className="flex items-center space-x-2 text-xs bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 rounded-lg">
+        <div className="flex items-center space-x-2 text-xs bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 rounded-lg whitespace-nowrap">
           <Database className="w-4 h-4 shrink-0 text-blue-600" />
-          <span>MongoDB Aggregation Pipelines Active</span>
+          <span className="hidden sm:inline">MongoDB Aggregation Pipelines Active</span>
+          <span className="sm:hidden">MongoDB Active</span>
         </div>
       </div>
 
@@ -105,7 +106,7 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Fee & Financial Summary Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs flex items-center space-x-4">
           <div className="p-3 bg-emerald-50 border border-emerald-100 rounded-lg text-emerald-600">
             <IndianRupee className="w-5 h-5" />

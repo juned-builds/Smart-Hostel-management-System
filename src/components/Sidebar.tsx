@@ -13,7 +13,12 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext.js';
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isMobileOpen?: boolean;
+  onMobileClose?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onMobileClose }) => {
   const { user } = useAuth();
   const isAdmin = user?.role === 'admin';
 
@@ -40,46 +45,75 @@ export const Sidebar: React.FC = () => {
 
   const navigation = isAdmin ? adminNav : studentNav;
 
-  return (
-    <aside className="w-64 bg-white border-r border-slate-200 min-h-[calc(100vh-4rem)] flex flex-col justify-between shrink-0">
-      <div className="p-4 space-y-6">
-        <div>
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">
-            {isAdmin ? 'Administration Portal' : 'Student Resident Portal'}
-          </div>
-          <nav className="space-y-1">
-            {navigation.map((item) => {
-              const Icon = item.icon;
-              return (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'bg-blue-50 text-blue-700 font-semibold border-r-4 border-blue-600 rounded-r-none'
-                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                    }`
-                  }
-                >
-                  <Icon className="w-4 h-4 shrink-0" />
-                  <span>{item.name}</span>
-                </NavLink>
-              );
-            })}
-          </nav>
-        </div>
-      </div>
+  const handleNavClick = () => {
+    if (onMobileClose) {
+      onMobileClose();
+    }
+  };
 
-      {/* College Info Footer */}
-      <div className="p-4 border-t border-slate-100 bg-slate-50/50 text-[11px] text-slate-500">
-        <p className="font-semibold text-slate-700">GTU Hostel Management</p>
-        <p className="text-slate-400">BE Sem 5 Project · WAD & ADBMS</p>
-        <div className="mt-2 flex items-center space-x-1.5 text-[10px] text-emerald-600 font-medium">
-          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>MongoDB Engine Active</span>
+  return (
+    <>
+      {/* Mobile Overlay */}
+      {isMobileOpen && (
+        <div
+          className="fixed inset-0 bg-slate-900/60 z-40 lg:hidden"
+          onClick={onMobileClose}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed inset-y-0 left-0 z-50
+          lg:top-16 lg:h-[calc(100vh-4rem)] lg:border-t lg:border-slate-800
+          w-64 bg-white border-r border-slate-200
+          flex flex-col justify-between shrink-0
+          transform transition-transform duration-300 ease-in-out
+          lg:transform-none
+          ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        `}
+      >
+        <div className="p-4 space-y-6 overflow-y-auto flex-1">
+          <div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">
+              {isAdmin ? 'Administration Portal' : 'Student Resident Portal'}
+            </div>
+            <nav className="space-y-1">
+              {navigation.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    onClick={handleNavClick}
+                    className={({ isActive }) =>
+                      `flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-blue-50 text-blue-700 font-semibold border-r-4 border-blue-600 rounded-r-none'
+                          : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      }`
+                    }
+                  >
+                    <Icon className="w-4 h-4 shrink-0" />
+                    <span>{item.name}</span>
+                  </NavLink>
+                );
+              })}
+            </nav>
+          </div>
         </div>
-      </div>
-    </aside>
+
+        {/* College Info Footer */}
+        <div className="p-4 border-t border-slate-100 bg-slate-50/50 text-[11px] text-slate-500 shrink-0">
+          <p className="font-semibold text-slate-700">GTU Hostel Management</p>
+          <p className="text-slate-400">BE Sem 5 Project · WAD & ADBMS</p>
+          <div className="mt-2 flex items-center space-x-1.5 text-[10px] text-emerald-600 font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>MongoDB Engine Active</span>
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
